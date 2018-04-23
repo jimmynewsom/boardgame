@@ -20,10 +20,11 @@ public class NPC {
         //kind of a hack, but I doubt I'll ever use this method
         respondsTo.remove(i);
     }
-
+    /*
     public String[] getPrompts(){
         return respondsTo.toArray();
     }
+    */
 
     public String[] getResponses(int inputPrompt){
         return respondsWith.get(inputPrompt);

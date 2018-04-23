@@ -1,7 +1,7 @@
 public class Dwarf extends Race {
     @Override
     void applyRacialBonuses(Character c) {
-        c.constitution =+ 2;
+        c.changeConstitution(2);
         //poison resistance
     }
 

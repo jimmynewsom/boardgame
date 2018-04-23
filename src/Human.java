@@ -1,11 +1,11 @@
 public class Human extends Race {
     @Override
     void applyRacialBonuses(Character c){
-        c.strength =+ 1;
-        c.dexterity =+ 1;
-        c.intelligence =+ 1;
-        c.wisdom =+ 1;
-        c.constitution =+ 1;
-        c.charisma =+ 1;
+        c.changeStrength(1);
+        c.changeDexterity(1);
+        c.changeIntelligence(1);
+        c.changeWisdom(1);
+        c.changeConstitution(1);
+        c.changeCharisma(1);
     }
 }

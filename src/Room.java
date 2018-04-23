@@ -8,7 +8,7 @@ public class Room {
     Room(){
         monsters = new Monster[1 + r.nextInt(3)];
         for(int i = 0; i < monsters.length; i++){
-            monsters[i] = new Goblin();
+            //monsters[i] = new Goblin();
         }
     }
 
