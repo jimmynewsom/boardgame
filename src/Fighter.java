@@ -1,2 +1,7 @@
-public class Fighter extends DNDClass {
+public class Fighter extends DnDClass {
+
+    /*
+        maxHP =
+     */
+
 }

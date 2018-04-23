@@ -1,2 +1,2 @@
-public class Wizard extends DNDClass {
+public class Wizard extends DnDClass {
 }

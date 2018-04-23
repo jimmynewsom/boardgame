@@ -1,2 +1,2 @@
-public class Rogue extends DNDClass {
+public class Rogue extends DnDClass {
 }

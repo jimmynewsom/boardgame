@@ -1,2 +1,3 @@
-public class Cleric extends DNDClass {
+public class Cleric extends DnDClass {
+
 }

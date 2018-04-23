@@ -4,4 +4,14 @@ public class Dwarf extends Race {
         c.constitution =+ 2;
         //poison resistance
     }
+
+    /*
+    constitution + 2
+    size = medium
+    speed = 25
+    darkvision
+     */
+
+
+
 }
