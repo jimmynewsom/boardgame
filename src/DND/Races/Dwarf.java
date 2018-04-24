@@ -1,3 +1,7 @@
+package DND.Races;
+
+import DND.Character;
+
 public class Dwarf extends Race {
     @Override
     void applyRacialBonuses(Character c) {

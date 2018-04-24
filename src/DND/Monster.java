@@ -1,3 +1,5 @@
+package DND;
+
 public abstract class Monster {
     String type;
     private int hp, attack, defense;

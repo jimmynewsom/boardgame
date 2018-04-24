@@ -1,3 +1,5 @@
+package DND;
+
 import java.util.Random;
 
 public class Room {

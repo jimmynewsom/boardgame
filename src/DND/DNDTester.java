@@ -1,3 +1,14 @@
+package DND;
+
+import DND.Classes.Cleric;
+import DND.Classes.Fighter;
+import DND.Classes.Rogue;
+import DND.Classes.Wizard;
+import DND.Races.Dwarf;
+import DND.Races.Elf;
+import DND.Races.Halfling;
+import DND.Races.Human;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +27,7 @@ import java.util.Scanner;
 
 
 
-public class DnDTester {
+public class DNDTester {
     static Random r = new Random();
 
     public static void main(String[] args){
@@ -57,7 +68,9 @@ public class DnDTester {
         player.describe();
 
         //once I've created a character, the "3 pillars of adventure" are exploration, interaction, and combat
-        //combat is easy. what's the best way to implement interaction and exploration??????
+        //combat - dungeons, interaction - town / quest hub, exploration - zones (for now)
+        //exploration will be the most limited for now. too much writing
+
 
 
         System.out.println("You enter a dark dungeon.");
