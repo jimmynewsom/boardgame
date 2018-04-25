@@ -1,4 +1,6 @@
-package DND;
+package DND.Zones;
+
+import DND.Actors.Monster;
 
 import java.util.Random;
 
@@ -7,14 +9,14 @@ public class Room {
 
     Monster[] monsters;
 
-    Room(){
+    public Room(){
         monsters = new Monster[1 + r.nextInt(3)];
         for(int i = 0; i < monsters.length; i++){
             //monsters[i] = new Goblin();
         }
     }
 
-    void describe(){
+    public void describe(){
         for(int i = 0; i < monsters.length; i++){
             System.out.println(monsters[i]);
         }

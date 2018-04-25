@@ -1,6 +1,6 @@
 package DND.Items;
 
-import DND.Character;
+import DND.Actors.Character;
 
 public class ManaPotion extends Consumable {
     @Override

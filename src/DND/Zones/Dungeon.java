@@ -1,4 +1,4 @@
-package DND;
+package DND.Zones;
 
 public class Dungeon {
      //i could probably represent dungeons as arrays of rooms, but thats not boring

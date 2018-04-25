@@ -3,7 +3,7 @@ package DND.Races;
 import DND.Actors.Actor;
 import DND.Actors.Character;
 
-public class Dwarf extends Race {
+public class Tiefling extends Race {
     @Override
     public void applyRacialBonuses(Character c) {
         c.changeConstitution(2);
@@ -12,15 +12,12 @@ public class Dwarf extends Race {
     }
 
     /*
-    constitution =+ 2
+    intelligence +1, charisma +2
     size = medium
-    speed = 25
+    speed = 30
     vision = darkvision
-    resistance to poison
-    proficiency with battleaxe, handaxe, light hammer, and warhammer
-    languages = [dwarvish, common]
+    resistance to fire
+    "infernal legacy"
+    languages = [infernal, common]
      */
-
-
-
 }

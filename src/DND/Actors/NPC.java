@@ -1,8 +1,8 @@
-package DND;
+package DND.Actors;
 
 import java.util.ArrayList;
 
-public class NPC {
+public class NPC extends Actor {
     private String name;
     private ArrayList<String> respondsTo;
     private ArrayList<String[]> respondsWith;

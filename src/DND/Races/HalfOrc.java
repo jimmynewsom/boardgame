@@ -3,24 +3,22 @@ package DND.Races;
 import DND.Actors.Actor;
 import DND.Actors.Character;
 
-public class Dwarf extends Race {
+public class HalfOrc extends Race {
     @Override
     public void applyRacialBonuses(Character c) {
-        c.changeConstitution(2);
-        c.setSizeAndSpeed(Actor.Size.MEDIUM, 25);
+        c.changeStrength(2);
+        c.changeConstitution(1);
+        c.setSizeAndSpeed(Actor.Size.MEDIUM, 30);
         c.setVision(Actor.Vision.DARKVISION);
     }
 
     /*
-    constitution =+ 2
+    strength +2, constitution +1
     size = medium
-    speed = 25
+    speed = 30
     vision = darkvision
-    resistance to poison
+    "relentless endurance and savage attacks"
     proficiency with battleaxe, handaxe, light hammer, and warhammer
-    languages = [dwarvish, common]
+    languages = [orc, common]
      */
-
-
-
 }

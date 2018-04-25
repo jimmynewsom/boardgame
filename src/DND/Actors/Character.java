@@ -1,4 +1,4 @@
-package DND;
+package DND.Actors;
 
 import DND.Classes.Class;
 import DND.Races.Race;
@@ -7,6 +7,7 @@ import DND.Items.Weapon;
 import DND.Items.Armor;
 import DND.Items.Consumable;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /*
@@ -20,26 +21,33 @@ but if they were public your less limited in terms of how you can throw mechanic
 */
 
 
-public class Character {
+public class Character extends Actor {
     public static Random r = new Random();  //should have a singleton random for the game....
-    public static final int[] XP_PER_LEVEL = {300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000};
+    private static final int[] XP_PER_LEVEL = {300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000};
 
     private String name;
     private Race race;
+    private Size size;
+    private int speed;
+    private Vision vision;
     private Class dndclass;
     private int strength, dexterity, intelligence, wisdom, constitution, charisma;
     private int hp = 20, maxHealth = 20, mp = 0, maxMP = 0, xp = 0, level = 1;
     private boolean isAlive = true;
 
+    private Alignment alignment;
+    private Morality morality;
+    private ArrayList<Language> languages;
+
     private Armor armor;
     private Weapon weapon;
     private Item[] inventory;
 
-    Character(String name){
+    public Character(String name){
         this.name = name;
     }
 
-    void rollStats(){
+    public void rollStats(){
         strength = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
         dexterity = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
         intelligence = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
@@ -49,7 +57,7 @@ public class Character {
     }
 
     //this is messy.. might be cleaner with an array, but I like my explicit variable names for stats
-    int changeStat(int stat, int change){
+    private int changeStat(int stat, int change){
         if(stat + change > 20)
              return 20;
         else if(stat + change < 3)
@@ -96,10 +104,21 @@ public class Character {
         level++;
     }
 
+    public void setVision(Vision vision){
+        this.vision = vision;
+    }
+
+    public void setSizeAndSpeed(Size size, int speed){
+        this.size = size;
+        this.speed = speed;
+    }
 
     //player's choice
-    private void chooseRace(Race race){
+    public void chooseRace(Race race){
         this.race = race;
+        race.applyRacialBonuses(this);
+        for(Language language : race.languages)
+            this.languages.add(language);
     }
 
     public Race getRace() {
@@ -109,10 +128,15 @@ public class Character {
     //polymorph
     public void changeRace(Race race) {
         this.race = race;
+        this.size = race.size;
     }
 
-    private void chooseClass(Class c){
+    public void chooseClass(Class c){
         dndclass = c;
+    }
+
+    public void learnLanguage(Language language){
+        languages.add(language);
     }
 
     /*
@@ -137,6 +161,12 @@ public class Character {
 
     public void describe(){
         System.out.println( name + " the " + race + " " + dndclass );
+        System.out.println("Str: " + strength);
+        System.out.println("Dex: " + dexterity);
+        System.out.println("Int: " + intelligence);
+        System.out.println("Wis: " + wisdom);
+        System.out.println("Con: " + constitution);
+        System.out.println("Cha: " + charisma);
     }
 
 

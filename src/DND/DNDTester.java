@@ -1,5 +1,6 @@
 package DND;
 
+import DND.Actors.Character;
 import DND.Classes.Cleric;
 import DND.Classes.Fighter;
 import DND.Classes.Rogue;
@@ -8,6 +9,7 @@ import DND.Races.Dwarf;
 import DND.Races.Elf;
 import DND.Races.Halfling;
 import DND.Races.Human;
+import DND.Zones.Room;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -48,7 +50,7 @@ public class DNDTester {
             default: player.chooseRace(new Halfling());
                      break;
         }
-        player.race.applyRacialBonuses(player);
+        player.getRace().applyRacialBonuses(player);
 
         System.out.println("Choose your class.");
         System.out.println("(1 for cleric, 2 for fighter, 3 for rogue, 4 for wizard.)");

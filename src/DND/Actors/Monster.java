@@ -1,6 +1,6 @@
-package DND;
+package DND.Actors;
 
-public abstract class Monster {
+public class Monster extends Actor {
     String type;
     private int hp, attack, defense;
     private boolean isAlive = true;

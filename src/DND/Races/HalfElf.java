@@ -3,20 +3,21 @@ package DND.Races;
 import DND.Actors.Actor;
 import DND.Actors.Character;
 
-public class Elf extends Race {
+public class HalfElf extends Race {
     @Override
     public void applyRacialBonuses(Character c) {
-        c.changeDexterity(2);
+        c.changeCharisma(2);
         c.setSizeAndSpeed(Actor.Size.MEDIUM, 30);
         c.setVision(Actor.Vision.DARKVISION);
     }
 
     /*
-    dexterity =+ 2
+    charisma +2, * +1
     size = medium
     speed = 30
-    darkvision
+    vision = darkvision
     resistance to charm and sleep
-    languages = [elvish, common]
+    * skill proficiency x2
+    languages = [elvish, common, *]
      */
 }
