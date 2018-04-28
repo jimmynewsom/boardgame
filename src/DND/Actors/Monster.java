@@ -1,16 +1,13 @@
 package DND.Actors;
 
 public class Monster extends Actor {
-    String type;
-    private int hp, attack, defense;
+    public String monsterName;
     private boolean isAlive = true;
+    private enum monsterType {ABERRATIONS, BEASTS, CELESTIALS, CONSTRUCTS, DRAGONS, ELEMENTALS,
+        FEY, FIENDS, GIANTS, HUMANOIDS, MONSTROSITIES, OOZES, PLANTS, UNDEAD}
+    private int challengeRating, xp;
 
-    Monster(String type, int hp, int attack, int defense){
-        this.type = type;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-    }
+
 
     void attack(Character player) {
         player.takeDamage(attack);

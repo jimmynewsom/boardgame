@@ -6,9 +6,9 @@ import DND.Items.Item;
 import DND.Items.Weapon;
 import DND.Items.Armor;
 import DND.Items.Consumable;
+import DND.D20;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /*
 depending on what's public & private, I can change how ridiculous my game is.
@@ -22,17 +22,11 @@ but if they were public your less limited in terms of how you can throw mechanic
 
 
 public class Character extends Actor {
-    public static Random r = new Random();  //should have a singleton random for the game....
     private static final int[] XP_PER_LEVEL = {300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000};
 
     private String name;
-    private Race race;
-    private Size size;
-    private int speed;
-    private Vision vision;
     private Class dndclass;
-    private int strength, dexterity, intelligence, wisdom, constitution, charisma;
-    private int hp = 20, maxHealth = 20, mp = 0, maxMP = 0, xp = 0, level = 1;
+    private int mp, maxMP, xp, level;
     private boolean isAlive = true;
 
     private Alignment alignment;
@@ -41,19 +35,38 @@ public class Character extends Actor {
 
     private Armor armor;
     private Weapon weapon;
-    private Item[] inventory;
+    private Item[] inventory = new Item[20];
+    private int itemCount = 0;
+
+    private DND.Spells.Spell[] spellList;
+
+
+    public enum WeaponProficiencies {SIMPLE, MARTIAL}
+    public enum ArmorProficiencies {LIGHT, MEDIUM, HEAVY, SHIELD}
+    //public enum ToolProficiencies {}
+    public enum Skills {ATHLETICS, ACROBATICS, SLEIGHTOFHAND, STEALTH, ARCANA, HISTORY, INVESTIGATION, NATURE, RELIGION,
+        ANIMALHANDLING, INSIGHT, MEDICINE, PERCEPTION, SURVIVAL, DECEPTION, INTIMIDATION, PERFORMANCE, PERSUASION}
+
+
 
     public Character(String name){
         this.name = name;
+        level = 1; xp = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    //I should roll 4 and drop the lowest die. also, people should choose which rolls go to which stats, better
     public void rollStats(){
-        strength = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
-        dexterity = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
-        intelligence = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
-        wisdom = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
-        constitution = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
-        charisma = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        int r1, r2, r3, r4;
+        strength = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        dexterity = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        intelligence = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        wisdom = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        constitution = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        charisma = D20.rolld6() + D20.rolld6() + D20.rolld6();
     }
 
     //this is messy.. might be cleaner with an array, but I like my explicit variable names for stats
@@ -90,6 +103,9 @@ public class Character extends Actor {
         charisma = changeStat(charisma, c);
     }
 
+    public int getAbilityModifier(int stat) {
+        return (stat - 10) / 2;
+    }
 
     void gainXP(int xp){
         this.xp =+ xp;
@@ -104,18 +120,12 @@ public class Character extends Actor {
         level++;
     }
 
-    public void setVision(Vision vision){
-        this.vision = vision;
-    }
-
-    public void setSizeAndSpeed(Size size, int speed){
-        this.size = size;
-        this.speed = speed;
-    }
-
-    //player's choice
+    //player's choice / true polymorph
     public void chooseRace(Race race){
         this.race = race;
+        this.size = race.size;
+        this.speed = race.speed;
+        this.vision = race.vision;
         race.applyRacialBonuses(this);
         for(Language language : race.languages)
             this.languages.add(language);
@@ -127,8 +137,11 @@ public class Character extends Actor {
 
     //polymorph
     public void changeRace(Race race) {
+        //later I have this initialize and update everything for feats and items
         this.race = race;
         this.size = race.size;
+        this.speed = race.speed;
+        this.vision = race.vision;
     }
 
     public void chooseClass(Class c){
@@ -139,11 +152,13 @@ public class Character extends Actor {
         languages.add(language);
     }
 
-    /*
+    //also messy
     private void pickUpItem(Item item){
-        if(inventory.size() )
+        if(itemCount < 20)
+            inventory[itemCount] = item;
+        else
+            System.out.println("Inventory is full!");
     }
-    */
 
     private void equipWeapon(Weapon weapon) {
         this.weapon = weapon;
@@ -158,7 +173,6 @@ public class Character extends Actor {
     }
 
 
-
     public void describe(){
         System.out.println( name + " the " + race + " " + dndclass );
         System.out.println("Str: " + strength);
@@ -168,7 +182,6 @@ public class Character extends Actor {
         System.out.println("Con: " + constitution);
         System.out.println("Cha: " + charisma);
     }
-
 
     public void attack(Monster target) {
         target.takeDamage(5);
@@ -197,7 +210,4 @@ public class Character extends Actor {
         else
             mp = mp + m;
     }
-
-
-
 }

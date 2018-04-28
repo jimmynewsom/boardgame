@@ -21,7 +21,9 @@ public class NPC extends Actor {
     public void removeLine(int i){
         //kind of a hack, but I doubt I'll ever use this method
         respondsTo.remove(i);
+        respondsWith.remove(i);
     }
+
     /*
     public String[] getPrompts(){
         return respondsTo.toArray();

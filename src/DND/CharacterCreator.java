@@ -2,11 +2,10 @@ package DND;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import DND.Actors.*;
 
-public class TextGame {
+public class CharacterCreator {
     static DND.Actors.Character player;
     static Random r = new Random();
     static Scanner in = new Scanner(System.in);
