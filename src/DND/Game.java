@@ -15,6 +15,7 @@ public class Game {
     public boolean combat(DND.Actors.Character[] party, Monster[] enemies){
         //determine surprise, establish positions*, roll intiative, take turns
         Actor[] combatants = new Actor[party.length + enemies.length];
+        return false;
     }
 
     private void playerTurn(DND.Actors.Character player, Monster[] enemies){
@@ -29,13 +30,15 @@ public class Game {
                 //System.out.println()
         }
         System.out.println("who would you like to target");
+
         for(int i = 0; i < enemies.length; i++)
-            System.out.print(enemies[i].type + " " + i + ",");
-        int target = in.next();
+            System.out.print("poop" + " " + i + ",");
+        int target = in.nextInt();
         if(input == 1)
             player.attack(enemies[target]);
         else
             player.attack(enemies[target]);
     }
+
 
 }

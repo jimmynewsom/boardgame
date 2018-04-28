@@ -10,7 +10,7 @@ import DND.Actors.Character;
 
 public abstract class Race {
     public Actor.Size size;
-    public static int speed;
+    public int speed;
     public static Actor.Vision vision;
     public static Actor.Language[] languages;
     public abstract void applyRacialBonuses(Actor c);

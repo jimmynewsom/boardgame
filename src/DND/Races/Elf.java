@@ -10,7 +10,7 @@ public class Elf extends Race {
     public static final Actor.Language[] languages = {Actor.Language.COMMON, Actor.Language.ELVISH};
 
     @Override
-    public void applyRacialBonuses(Character c) {
+    public void applyRacialBonuses(Actor c) {
         c.changeDexterity(2);
     }
 

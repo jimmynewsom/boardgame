@@ -1,13 +1,11 @@
 package DND;
 
-import java.util.Random;
 import java.util.Scanner;
 
 import DND.Actors.*;
 
 public class CharacterCreator {
     static DND.Actors.Character player;
-    static Random r = new Random();
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args){

@@ -9,7 +9,7 @@ public abstract class Actor {
     public enum Size {TINY, SMALL, MEDIUM, LARGE, HUGE, GARGANTUAN}
     public enum Vision {BLINDSIGHT, DARKVISION, TRUESIGHT, REGULARSIGHT, BLIND}
     public enum Alignment {GOOD, NEUTRAL, EVIL}
-    public enum Morality {LAWFUL, NEUTRAL, CHAOTIC}  //bad name
+    public enum MoralCode {LAWFUL, NEUTRAL, CHAOTIC}
     public enum Language {COMMON, DWARVISH, ELVISH, GIANT, GNOMISH, GOBLIN, HALFLING, ORC, ABYSSAL, CELESTIAL,
         DRACONIC, DEEPSPEECH, INFERNAL, PRIMORDIAL, SYLVAN, UNDERCOMMON, TELEPATHY}
 
@@ -19,7 +19,7 @@ public abstract class Actor {
     protected Size size;
     protected Vision vision;
     protected Alignment alignment;
-    protected Morality morality; //bad name
+    protected MoralCode morality;
     protected ArrayList<Condition> condition;
 
     protected boolean isAlive;
