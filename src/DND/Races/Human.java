@@ -10,7 +10,7 @@ public class Human extends Race {
     public static final Actor.Language[] languages = {Actor.Language.COMMON};
 
     @Override
-    public void applyRacialBonuses(Character c){
+    public void applyRacialBonuses(Actor c){
         c.changeStrength(1);
         c.changeDexterity(1);
         c.changeIntelligence(1);

@@ -26,27 +26,21 @@ public class Character extends Actor {
 
     private String name;
     private Class dndclass;
-    private int mp, maxMP, xp, level;
-    private boolean isAlive = true;
-
-    private Alignment alignment;
-    private Morality morality;
-    private ArrayList<Language> languages;
+    private int xp, level;
 
     private Armor armor;
     private Weapon weapon;
+    //inventory size is unlimited, but there's a weight limit
     private Item[] inventory = new Item[20];
     private int itemCount = 0;
 
     private DND.Spells.Spell[] spellList;
-
 
     public enum WeaponProficiencies {SIMPLE, MARTIAL}
     public enum ArmorProficiencies {LIGHT, MEDIUM, HEAVY, SHIELD}
     //public enum ToolProficiencies {}
     public enum Skills {ATHLETICS, ACROBATICS, SLEIGHTOFHAND, STEALTH, ARCANA, HISTORY, INVESTIGATION, NATURE, RELIGION,
         ANIMALHANDLING, INSIGHT, MEDICINE, PERCEPTION, SURVIVAL, DECEPTION, INTIMIDATION, PERFORMANCE, PERSUASION}
-
 
 
     public Character(String name){
@@ -103,11 +97,7 @@ public class Character extends Actor {
         charisma = changeStat(charisma, c);
     }
 
-    public int getAbilityModifier(int stat) {
-        return (stat - 10) / 2;
-    }
-
-    void gainXP(int xp){
+    public void gainXP(int xp){
         this.xp =+ xp;
         while(this.xp > XP_PER_LEVEL[level]){
             levelUp();
@@ -115,9 +105,8 @@ public class Character extends Actor {
     }
 
     void levelUp(){
-        maxHealth =+ 10;
-        hp =+ 10;
         level++;
+        //increase class level
     }
 
     //player's choice / true polymorph

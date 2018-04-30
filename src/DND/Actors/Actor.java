@@ -20,7 +20,7 @@ public abstract class Actor {
     protected Vision vision;
     protected Alignment alignment;
     protected MoralCode morality;
-    protected ArrayList<Condition> condition;
+    protected ArrayList<Condition> conditions;
 
     protected boolean isAlive;
     protected int maxHealth, currentHealth, maxMana, currentMana, speed, AC;
@@ -40,5 +40,49 @@ public abstract class Actor {
             System.out.println("you hit the target");
         else
             System.out.println("the attack misses");
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public int getConstitution() {
+        return constitution;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public int getWisdom() {
+        return wisdom;
+    }
+
+    public int getCharisma() {
+        return charisma;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Vision getVision() {
+        return vision;
+    }
+
+    public Alignment getAlignment() {
+        return alignment;
+    }
+
+    public MoralCode getMorality() {
+        return morality;
+    }
+
+    public ArrayList<Condition> getConditions() {
+        return conditions;
     }
 }
