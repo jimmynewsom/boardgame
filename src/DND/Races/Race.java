@@ -2,6 +2,9 @@ package DND.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;
+import DND.Game;
+
+//maybe i could make races instances of this class instead of subclasses, but this seems more extensible
 
 //most races include an abilitiy score increase, age*(lifespan), alignment, size, speed, & language
 //some races have subraces which would just inherit from the parent races
@@ -9,9 +12,19 @@ import DND.Actors.Character;
 
 
 public abstract class Race {
-    public Actor.Size size;
-    public int speed;
-    public static Actor.Vision vision;
-    public static Actor.Language[] languages;
-    public abstract void applyRacialBonuses(Actor c);
+    public final Actor.Size size;
+    public final int speed;
+    public final Actor.Vision vision;
+    public final Actor.Language[] languages;
+    //public final Game.DamageType[] resistances;
+    public abstract void applyRacialBonuses(Character c);
+
+    public Race(Actor.Size size, int speed, Actor.Vision vision, Actor.Language[] languages){
+        this.size = size;
+        this.speed = speed;
+        this.vision = vision;
+        this.languages = languages;
+    }
+
+    public void racialAbility(Actor[] target_s){}
 }

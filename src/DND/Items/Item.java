@@ -1,7 +1,7 @@
 package DND.Items;
 
-//page 66
-
 public abstract class Item {
-    String itemName;
+    protected String itemName;
+    //protected String description;
+    protected int weight, cost;
 }

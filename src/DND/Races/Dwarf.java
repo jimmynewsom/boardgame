@@ -4,14 +4,13 @@ import DND.Actors.Actor;
 import DND.Actors.Character;
 
 public class Dwarf extends Race {
-    public static final Actor.Size size = Actor.Size.MEDIUM;
-    public static final int speed = 25;
-    public static final Actor.Vision vision = Actor.Vision.DARKVISION;
-    public static final Actor.Language[] languages = {Actor.Language.COMMON, Actor.Language.DWARVISH};
-
     @Override
     public void applyRacialBonuses(Character c) {
         c.changeConstitution(2);
+    }
+
+    public Dwarf(){
+        super(Actor.Size.MEDIUM, 25, Actor.Vision.DARKVISION, new Actor.Language[] {Actor.Language.COMMON, Actor.Language.DWARVISH});
     }
 
     /*
@@ -20,7 +19,8 @@ public class Dwarf extends Race {
     speed = 25
     vision = darkvision
     resistance to poison
-    proficiency with battleaxe, handaxe, light hammer, and warhammer
+    proficiency with battleaxe, handaxe, light hammer, and warhammer & tools of choice*
+    stonecunning* - double proficiency bonus for history checks related to stonework
     languages = [dwarvish, common]
      */
 

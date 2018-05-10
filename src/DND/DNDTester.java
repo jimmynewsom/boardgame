@@ -15,15 +15,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 /*
-this is an implementation of dnd. its designed to be as extensible as possible
+this is an implementation of dnd. its designed to be as extensible and readable as possible
 so dnd races and classes get their own java classes, that way its easy to add more races and classes later
-*(some things might be better done using the abstract factory pattern instead of direct inheritance, ill reoptimize later)
+*(some things might be better done using the factory pattern instead of direct inheritance, ill reoptimize later)
 
 players should make characters, then their characters can explore the gameworld.
-3 pillars of gameplay are exploration, interaction, and combat.
+(3 pillars of gameplay are exploration, social interaction, and combat.)
 combat - dungeons
-exploration - include several locations to move between (like zork)
-interaction - include npcs
+exploration - include several locations to move between (like zork - this is pretty weak, but ok for a first version)
+interaction - include npcs. make them interesting / funny
 
  */
 

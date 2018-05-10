@@ -2,12 +2,49 @@ package DND.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;
+import DND.Actors.Dragon;
+import DND.Game;
 
 public class Dragonborn extends Race {
-    public static final Actor.Size size = Actor.Size.MEDIUM;
-    public static final int speed = 30;
-    public static final Actor.Vision vision = Actor.Vision.REGULARSIGHT;
-    public static final Actor.Language[] languages = {Actor.Language.COMMON, Actor.Language.DRACONIC};
+    private Dragon.DragonColor color;
+    private Game.DamageType resistanceType;
+
+    public Dragonborn(Dragon.DragonColor color){
+        super(Actor.Size.MEDIUM, 30, Actor.Vision.REGULARSIGHT, new Actor.Language[] {Actor.Language.COMMON, Actor.Language.DRACONIC});
+        this.color = color;
+        switch (color){
+            case BLACK:
+                resistanceType = Game.DamageType.ACID;
+                break;
+            case BLUE:
+                resistanceType = Game.DamageType.LIGHTNING;
+                break;
+            case BRASS:
+                resistanceType = Game.DamageType.FIRE;
+                break;
+            case BRONZE:
+                resistanceType = Game.DamageType.LIGHTNING;
+                break;
+            case COPPER:
+                resistanceType = Game.DamageType.ACID;
+                break;
+            case GOLD:
+                resistanceType = Game.DamageType.FIRE;
+                break;
+            case GREEN:
+                resistanceType = Game.DamageType.POISON;
+                break;
+            case RED:
+                resistanceType = Game.DamageType.FIRE;
+                break;
+            case SILVER:
+                resistanceType = Game.DamageType.COLD;
+                break;
+            case WHITE:
+                resistanceType = Game.DamageType.COLD;
+                break;
+        }
+    }
 
     @Override
     public void applyRacialBonuses(Character c) {

@@ -1,6 +1,7 @@
 package DND.Actors;
 
 import DND.D20;
+import DND.Game;
 
 import java.util.ArrayList;
 
@@ -13,17 +14,16 @@ public abstract class Actor {
     public enum Language {COMMON, DWARVISH, ELVISH, GIANT, GNOMISH, GOBLIN, HALFLING, ORC, ABYSSAL, CELESTIAL,
         DRACONIC, DEEPSPEECH, INFERNAL, PRIMORDIAL, SYLVAN, UNDERCOMMON, TELEPATHY}
 
-    public enum Condition {BLINDED, CHARMED, DEAFENED, FRIGHTENED, GRAPPLED, INCAPACITATED, INVISIBLE,
-        PARALYZED, PETRIFIED, POISONED, PRONE, RESTRAINED, STUNNED, UNCONSCIOUS}
-
     protected Size size;
     protected Vision vision;
     protected Alignment alignment;
     protected MoralCode morality;
-    protected ArrayList<Condition> conditions;
+    protected ArrayList<Game.Condition> conditions;
+    protected ArrayList<Game.DamageType> resistances;
+    protected ArrayList<Game.DamageType> vulnerabilities;
 
     protected boolean isAlive;
-    protected int maxHealth, currentHealth, maxMana, currentMana, speed, AC;
+    protected int maxHP, hp, speed, AC;
 
     public int getAbilityModifier(int abilityScore){
         return (abilityScore - 10) / 2;
@@ -35,11 +35,26 @@ public abstract class Actor {
         if(roll == 20)
             System.out.println("critical hit!");
         else if(roll == 1)
-            System.out.println("critical fail (that's embarassing...)");
-        else if(roll + getAbilityModifier(strength) >= target.AC)
+            System.out.println("critical fail (that's embararssing...)");
+        else if(roll + getAbilityModifier(strength) >= target.AC) {
             System.out.println("you hit the target");
+            //roll for damage
+        }
         else
             System.out.println("the attack misses");
+    }
+
+    public void takeDamage(int damage){
+        hp =- damage;
+        if(hp <= 0)
+            isAlive = false;
+    }
+
+    public void heal(int healing){
+        if(hp + healing > maxHP)
+            hp = maxHP;
+        else
+            hp =+ healing;
     }
 
     public int getStrength() {
@@ -82,7 +97,17 @@ public abstract class Actor {
         return morality;
     }
 
-    public ArrayList<Condition> getConditions() {
+    public ArrayList<Game.Condition> getConditions() {
         return conditions;
     }
+
+    //combat methods
+
+
+
+
+
+    public void shortRest(){}
+
+    public void longRest(){}
 }

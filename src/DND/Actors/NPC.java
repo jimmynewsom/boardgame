@@ -2,13 +2,12 @@ package DND.Actors;
 
 import java.util.ArrayList;
 
-public class NPC extends Actor {
-    private String name;
+public class NPC extends Character {
     private ArrayList<String> respondsTo;
     private ArrayList<String[]> respondsWith;
 
-    public NPC(String n){
-        name = n;
+    public NPC(String name){
+        super(name);
         respondsTo = new ArrayList<String>();
         respondsWith = new ArrayList<String[]>();
     }
@@ -24,13 +23,11 @@ public class NPC extends Actor {
         respondsWith.remove(i);
     }
 
-    /*
     public String[] getPrompts(){
-        return respondsTo.toArray();
+        return (String[]) respondsTo.toArray();
     }
-    */
 
-    public String[] getResponses(int inputPrompt){
+    public String[] getResponse(int inputPrompt){
         return respondsWith.get(inputPrompt);
     }
 }

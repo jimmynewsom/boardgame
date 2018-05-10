@@ -2,8 +2,12 @@ package DND;
 
 import java.util.Random;
 
-public class D20 {
-    public static Random r = new Random();
+//singleton Random class for the app
+//there's probably a better way to do this, but this works
+
+public enum D20 {
+    INSTANCE;
+    private static Random r = new Random();
 
     public static int rolld4() {
         return 1 + r.nextInt(4);
