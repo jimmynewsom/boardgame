@@ -2,20 +2,12 @@ package DND;
 
 import java.util.Scanner;
 
-import DND.Actors.*;
-
-public class CharacterCreator {
-    DND.Actors.Character player;
+public class DungeonCreator {
+    DND.Zones.Dungeon dungeon;
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args){
-        System.out.println("Hello! Welcome to Jimmy Newsom's RPG Simulator v1.0!");
-        System.out.println("This is an implementation of a popular board game, using open game content.");
-        System.out.println("Technically, I don't think I'm allowed to say the name of the game, but I have also have to include a license which includes the name of the game.");
-        System.out.println("So it seems reasonable that an intelligent person could figure it out pretty easily... rhymes with \"sponges & flagons\"...");
-        System.out.println();
-
-        System.out.println("Anyways, yeah, it's that game. You want to make a character?");
+        System.out.println("You want to make a dungeon?");
 
         System.out.println("    1 -> Sure");  //begin character creation process
         System.out.println("    2 -> Not really");   //end program (because it's funny)

@@ -1,4 +1,8 @@
 package DND.Spells;
 
-public class Feat extends Spell {
+import DND.Actors.Actor;
+
+public abstract class Feat {
+    //private int requirements;
+    public abstract void use(Actor[] target_s);
 }

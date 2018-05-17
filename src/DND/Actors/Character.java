@@ -26,10 +26,10 @@ public class Character extends Actor {
 
     private String name;
     private Race race;
-    private Class baseclass;
-    private ArrayList<Class> multilclasses;   //could be an array, but this code is simpler
+    private ArrayList<Class> dndclass_s;
     private int xp, level;
     //private Feat[] feats;
+    private int[] maxSpellSlots = new int[9], currentSpellSlots = new int[9];
 
     private Armor armor;
     private Weapon weapon;
@@ -37,8 +37,8 @@ public class Character extends Actor {
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private int weight = 0, weightLimit = 100;
 
-    public Weapon.WeaponType[] weaponProficiencies;
-    public Armor.ArmorType[] armorProficiencies;
+    private ArrayList<Weapon.WeaponType> weaponProficiencies;
+    private ArrayList<Armor.ArmorType> armorProficiencies;
     //public enum ToolProficiencies {}
     public enum Skills {ATHLETICS, ACROBATICS, SLEIGHTOFHAND, STEALTH, ARCANA, HISTORY, INVESTIGATION, NATURE, RELIGION,
         ANIMALHANDLING, INSIGHT, MEDICINE, PERCEPTION, SURVIVAL, DECEPTION, INTIMIDATION, PERFORMANCE, PERSUASION}
@@ -50,7 +50,7 @@ public class Character extends Actor {
         this.name = name;
         level = 1; xp = 0;
         this.chooseRace(race);
-        baseclass = dndclass;
+        class_s.add(dndclass);
     }
 
     public String getName() {
@@ -70,6 +70,10 @@ public class Character extends Actor {
 
     public Race getRace() {
         return race;
+    }
+
+    public ArrayList<Class> getDNDClass_s() {
+        return class_s;
     }
 
     //polymorph
@@ -133,9 +137,15 @@ public class Character extends Actor {
         }
     }
 
-    //I
-    void levelUp(){
+
+    private void levelUp(Class c){
         level++;
+        if(dndclass_s.contains(c))
+            dndclass_s.get(dndclass_s.indexOf(c)).levelUp();
+        else
+            dndclass_s.add(c);
+
+
     }
 
     public void learnLanguage(Language language){
@@ -143,7 +153,7 @@ public class Character extends Actor {
     }
 
     //also messy
-    private void pickUpItem(Item item){
+    public void pickUpItem(Item item){
         if(weight < weightLimit) {
             inventory.add(item);
             //weight =+ item.weight;
@@ -162,14 +172,8 @@ public class Character extends Actor {
         inventory.remove(armor);
     }
 
-    private void useConsummable(Consumable consumable) {
-        consumable.use(this);
-        inventory.remove(consumable);
-    }
-
-
     public void describe(){
-        System.out.println( name + " the " + race + " " + baseclass );
+        System.out.println( name + " the " + race + " " + class_s.get(0) );
         System.out.println("Str: " + strength);
         System.out.println("Dex: " + dexterity);
         System.out.println("Int: " + intelligence);

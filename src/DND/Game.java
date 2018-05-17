@@ -16,7 +16,7 @@ public class Game {
     public enum Condition {BLINDED, CHARMED, DEAFENED, FRIGHTENED, GRAPPLED, INCAPACITATED, INVISIBLE,
         PARALYZED, PETRIFIED, POISONED, PRONE, RESTRAINED, STUNNED, UNCONSCIOUS}
 
-    //combat v1. only works for combat between 2 factions
+    //combat is hard. all of this will change if i change the presentation layer (text based vs 2d or 3d)
     public void combat(Character[] party, Actor[] enemies){
         //determine surprise, establish positions*, roll intiative, take turns
         boolean battleInProgress = true;

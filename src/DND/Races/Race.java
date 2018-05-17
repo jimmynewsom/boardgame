@@ -4,12 +4,13 @@ import DND.Actors.Actor;
 import DND.Actors.Character;
 import DND.Game;
 
-//maybe i could make races instances of this class instead of subclasses, but this seems more extensible
+//making each race its own subclass might be inefficient, but I think its the most extensible design
+//this way each race can be further customized independently from the rest
+//also, its the best way to represent this logical relationship (definitely an is-a relationship, so i can use inheritance)
 
 //most races include an abilitiy score increase, age*(lifespan), alignment, size, speed, & language
 //some races have subraces which would just inherit from the parent races
 //some races also have racial abilities, and ill deal with those on a case by case basis
-
 
 public abstract class Race {
     public final Actor.Size size;

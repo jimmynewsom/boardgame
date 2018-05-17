@@ -2,6 +2,7 @@ package DND.Actors;
 
 import DND.D20;
 import DND.Game;
+import DND.Spells.Spell;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,8 @@ public abstract class Actor {
         return (abilityScore - 10) / 2;
     }
 
+    //public void move(int x, int y){}
+
     public void attack(Actor target){
         //choose target, determine modifiers, resolve the attack
         int roll = D20.rolld20();
@@ -44,10 +47,19 @@ public abstract class Actor {
             System.out.println("the attack misses");
     }
 
+    public void castSpell(Spell spell, Actor[] target_s){
+        spell.cast(target_s);
+    }
+
     public void takeDamage(int damage){
         hp =- damage;
         if(hp <= 0)
             isAlive = false;
+    }
+
+    public void revive(int healing){
+        isAlive = true;
+        hp = healing;
     }
 
     public void heal(int healing){
@@ -105,9 +117,4 @@ public abstract class Actor {
 
 
 
-
-
-    public void shortRest(){}
-
-    public void longRest(){}
 }
