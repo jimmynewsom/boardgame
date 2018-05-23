@@ -18,6 +18,6 @@ public abstract class Class {
     protected Subclass subclass;
 
     //protected Character.ToolProficiences[] toolProficiencies;
-    //public abstract void levelUp();
+    public abstract void levelUp();
     //public abstract void abilityScoreIncrease(Character player);
 }

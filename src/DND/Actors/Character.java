@@ -1,6 +1,7 @@
 package DND.Actors;
 
         import DND.Classes.Class;
+        import DND.Classes.Warlock;
         import DND.Races.Race;
         import DND.Items.Item;
         import DND.Items.Weapon;
@@ -50,7 +51,7 @@ public class Character extends Actor {
         this.name = name;
         level = 1; xp = 0;
         this.chooseRace(race);
-        class_s.add(dndclass);
+        dndclass_s.add(dndclass);
     }
 
     public String getName() {
@@ -73,7 +74,7 @@ public class Character extends Actor {
     }
 
     public ArrayList<Class> getDNDClass_s() {
-        return class_s;
+        return dndclass_s;
     }
 
     //polymorph
@@ -133,7 +134,7 @@ public class Character extends Actor {
     public void gainXP(int xp){
         this.xp =+ xp;
         while(this.xp > XP_PER_LEVEL[level]){
-            levelUp();
+            levelUp(new Warlock());
         }
     }
 
@@ -173,7 +174,7 @@ public class Character extends Actor {
     }
 
     public void describe(){
-        System.out.println( name + " the " + race + " " + class_s.get(0) );
+        System.out.println( name + " the " + race + " " + dndclass_s.get(0) );
         System.out.println("Str: " + strength);
         System.out.println("Dex: " + dexterity);
         System.out.println("Int: " + intelligence);

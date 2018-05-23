@@ -3,6 +3,7 @@ package DND;
 import java.util.Scanner;
 
 public class DungeonCreator {
+    /*
     DND.Zones.Dungeon dungeon;
     static Scanner in = new Scanner(System.in);
 
@@ -27,7 +28,7 @@ public class DungeonCreator {
         } while(in.nextInt() == 2);
 
         System.out.println("Ok, cool.");
-        player = new DND.Actors.Character(name);
+
 
         do {
             System.out.println("What race do you want to be?");
@@ -61,4 +62,5 @@ public class DungeonCreator {
 
 
     }
+    */
 }
