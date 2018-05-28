@@ -1,4 +1,4 @@
-package DND.Classes;
+package DND.Actors.Classes;
 
 public class Fighter extends Class {
     private enum FightingStyle {ARCHERY, DEFENSE, DUELING, GREATWEAPONFIGHTING, PROTECTION, TWOWEAPONFIGHTING}

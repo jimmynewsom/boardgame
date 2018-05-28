@@ -1,7 +1,6 @@
-package DND.Races;
+package DND.Actors.Races;
 
 import DND.Actors.Dragon;
-import DND.Races.*;
 
 //not sure I'm doing this right. building a factory so I can use singletons for races and only build them as necessary
 

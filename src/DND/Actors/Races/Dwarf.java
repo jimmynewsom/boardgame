@@ -1,4 +1,4 @@
-package DND.Races;
+package DND.Actors.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;

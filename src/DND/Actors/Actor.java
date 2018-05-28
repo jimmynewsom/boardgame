@@ -1,12 +1,14 @@
 package DND.Actors;
 
-import DND.D20;
 import DND.Game;
 import DND.Spells.Spell;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class Actor {
+    private static Random r = new Random();
+
     protected int strength, dexterity, constitution, intelligence, wisdom, charisma;
     public enum Size {TINY, SMALL, MEDIUM, LARGE, HUGE, GARGANTUAN}
     public enum Vision {BLINDSIGHT, DARKVISION, TRUESIGHT, REGULARSIGHT, BLIND}
@@ -34,7 +36,7 @@ public abstract class Actor {
 
     public void attack(Actor target){
         //choose target, determine modifiers, resolve the attack
-        int roll = D20.rolld20();
+        int roll = 1 + r.nextInt(20);
         if(roll == 20)
             System.out.println("critical hit!");
         else if(roll == 1)

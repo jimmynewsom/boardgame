@@ -1,15 +1,14 @@
 package DND.Actors;
 
-        import DND.Classes.Class;
-        import DND.Classes.Warlock;
-        import DND.Races.Race;
+        import DND.Actors.Classes.Class;
+        import DND.Actors.Classes.Warlock;
+        import DND.Actors.Races.Race;
         import DND.Items.Item;
         import DND.Items.Weapon;
         import DND.Items.Armor;
-        import DND.Items.Consumable;
-        import DND.D20;
 
         import java.util.ArrayList;
+        import java.util.Random;
 
 /*
 depending on what's public & private, I can change how ridiculous my game is.
@@ -23,6 +22,8 @@ but if they were public your less limited in terms of how you can throw mechanic
 
 
 public class Character extends Actor {
+    private static Random r = new Random();
+
     private static final int[] XP_PER_LEVEL = {300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000};
 
     private String name;
@@ -89,12 +90,12 @@ public class Character extends Actor {
     //I should roll 4 and drop the lowest die. also, people should choose which rolls go to which stats, better
     public void rollStats(){
         int r1, r2, r3, r4;
-        strength = D20.rolld6() + D20.rolld6() + D20.rolld6();
-        dexterity = D20.rolld6() + D20.rolld6() + D20.rolld6();
-        intelligence = D20.rolld6() + D20.rolld6() + D20.rolld6();
-        wisdom = D20.rolld6() + D20.rolld6() + D20.rolld6();
-        constitution = D20.rolld6() + D20.rolld6() + D20.rolld6();
-        charisma = D20.rolld6() + D20.rolld6() + D20.rolld6();
+        strength = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        dexterity = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        intelligence = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        wisdom = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        constitution = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
+        charisma = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
     }
 
     //this is messy.. might be cleaner with an array, but I like my explicit variable names for stats

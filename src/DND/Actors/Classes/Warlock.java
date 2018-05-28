@@ -1,4 +1,4 @@
-package DND.Classes;
+package DND.Actors.Classes;
 
 import DND.Items.Armor;
 import DND.Items.Weapon;

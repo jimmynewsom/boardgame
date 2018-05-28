@@ -1,8 +1,7 @@
-package DND.Races;
+package DND.Actors.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;
-import DND.Game;
 
 //making each race its own subclass might be inefficient, but I think its the most extensible design
 //this way each race can be further customized independently from the rest

@@ -1,10 +1,9 @@
-package DND.Classes;
+package DND.Actors.Classes;
 
-import DND.Actors.Character;
 import DND.Items.Armor;
 import DND.Items.Weapon;
 
-public class Barbarian extends DND.Classes.Class {
+public class Barbarian extends DND.Actors.Classes.Class {
     //String path
 
     public Barbarian() {

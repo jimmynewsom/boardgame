@@ -4,12 +4,15 @@ import DND.Actors.*;
 import DND.Actors.Character;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 /*
 top level Game object. Most of the combat methods will change if I add graphics later
  */
 
 public class Game {
+    private static Random r = new Random();
+
     public enum DamageType {ACID, BLUDGEONING, COLD, FIRE, FORCE, LIGHTNING, NECROTIC, PIERCING,
         POISON, PSYCHIC, RADIANT, SLASHING, THUNDER}
 
@@ -42,7 +45,7 @@ public class Game {
                 combatants[i] = party[i];
             else
                 combatants[i] = enemies[i - party.length];
-            rolls[i] = D20.rolld20() + combatants[i].getAbilityModifier(combatants[i].getDexterity());
+            rolls[i] = 1 + r.nextInt(20) + combatants[i].getAbilityModifier(combatants[i].getDexterity());
         }
         //I'm just going to use selection sort for now, because n <= 10, and I want this to be simple
         for(int i = 0; i < rolls.length; i++){

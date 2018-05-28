@@ -1,4 +1,4 @@
-package DND.Classes;
+package DND.Actors.Classes;
 
 public class Bard extends Class {
     int base_hp = 8, hp_per_level = 5;

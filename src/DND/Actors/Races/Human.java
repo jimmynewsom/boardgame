@@ -1,8 +1,7 @@
-package DND.Races;
+package DND.Actors.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;
-import com.sun.org.apache.regexp.internal.RE;
 
 public class Human extends Race {
     @Override

@@ -1,4 +1,4 @@
-package DND.Classes;
+package DND.Actors.Classes;
 
 import DND.Actors.Character;
 import DND.Items.Item;
@@ -16,8 +16,11 @@ public abstract class Class {
     protected boolean isMagicUser;
     protected Spell[] spellList;
     protected Subclass subclass;
-
     //protected Character.ToolProficiences[] toolProficiencies;
-    public abstract void levelUp();
+
+    public void levelUp(){
+        classLevel++;
+    }
+
     //public abstract void abilityScoreIncrease(Character player);
 }
