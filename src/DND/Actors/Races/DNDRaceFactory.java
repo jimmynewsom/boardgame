@@ -1,6 +1,6 @@
 package DND.Actors.Races;
 
-import DND.Actors.Dragon;
+import DND.Actors.Monster;
 
 //not sure I'm doing this right. building a factory so I can use singletons for races and only build them as necessary
 
@@ -59,47 +59,47 @@ public class DNDRaceFactory {
     }
 
     //I need different instances for different colors, so this cant be a singleton
-    public Race makeDragonborn(Dragon.DragonColor color){
+    public Race makeDragonborn(Monster.Dragon.DragonColor color){
         switch (color){
             case BLACK:
                 if(blackdb == null)
-                    blackdb = new Dragonborn(Dragon.DragonColor.BLACK);
+                    blackdb = new Dragonborn(Monster.Dragon.DragonColor.BLACK);
                 return blackdb;
             case BLUE:
                 if(bluedb == null)
-                    bluedb = new Dragonborn(Dragon.DragonColor.BLUE);
+                    bluedb = new Dragonborn(Monster.Dragon.DragonColor.BLUE);
                 return bluedb;
             case BRASS:
                 if(brassdb == null)
-                    brassdb = new Dragonborn(Dragon.DragonColor.BRASS);
+                    brassdb = new Dragonborn(Monster.Dragon.DragonColor.BRASS);
                 return brassdb;
             case BRONZE:
                 if(bronzedb == null)
-                    bronzedb = new Dragonborn(Dragon.DragonColor.BRONZE);
+                    bronzedb = new Dragonborn(Monster.Dragon.DragonColor.BRONZE);
                 return bronzedb;
             case COPPER:
                 if(copperdb == null)
-                    copperdb = new Dragonborn(Dragon.DragonColor.COPPER);
+                    copperdb = new Dragonborn(Monster.Dragon.DragonColor.COPPER);
                 return copperdb;
             case GOLD:
                 if(golddb == null)
-                    golddb = new Dragonborn(Dragon.DragonColor.GOLD);
+                    golddb = new Dragonborn(Monster.Dragon.DragonColor.GOLD);
                 return golddb;
             case GREEN:
                 if(greendb == null)
-                    greendb = new Dragonborn(Dragon.DragonColor.GREEN);
+                    greendb = new Dragonborn(Monster.Dragon.DragonColor.GREEN);
                 return greendb;
             case RED:
                 if(reddb == null)
-                    reddb = new Dragonborn(Dragon.DragonColor.RED);
+                    reddb = new Dragonborn(Monster.Dragon.DragonColor.RED);
                 return reddb;
             case SILVER:
                 if(silverdb == null)
-                    silverdb = new Dragonborn(Dragon.DragonColor.SILVER);
+                    silverdb = new Dragonborn(Monster.Dragon.DragonColor.SILVER);
                 return silverdb;
             case WHITE:
                 if(whitedb == null)
-                    whitedb = new Dragonborn(Dragon.DragonColor.WHITE);
+                    whitedb = new Dragonborn(Monster.Dragon.DragonColor.WHITE);
                 return whitedb;
             default:
                 return null;

@@ -40,10 +40,11 @@ public abstract class Actor {
         if(roll == 20)
             System.out.println("critical hit!");
         else if(roll == 1)
-            System.out.println("critical fail (that's embararssing...)");
+            System.out.println("critical fail (that's embararassing...)");
         else if(roll + getAbilityModifier(strength) >= target.AC) {
             System.out.println("you hit the target");
-            //roll for damage
+            //need separate method for damage calculation
+            target.takeDamage(7, Game.DamageType.SLASHING );
         }
         else
             System.out.println("the attack misses");
@@ -53,8 +54,13 @@ public abstract class Actor {
         spell.cast(target_s);
     }
 
-    public void takeDamage(int damage){
-        hp =- damage;
+    public void takeDamage(int damage, Game.DamageType damageType){
+        if(this.resistances.contains(damageType))
+            hp =- damage/2;
+        else if(this.vulnerabilities.contains(damageType))
+            hp =+ damage/2;
+        else
+            hp =- damage;
         if(hp <= 0)
             isAlive = false;
     }
@@ -114,9 +120,4 @@ public abstract class Actor {
     public ArrayList<Game.Condition> getConditions() {
         return conditions;
     }
-
-    //combat methods
-
-
-
 }

@@ -2,7 +2,7 @@ package DND.Actors;
 
 import DND.Actors.Classes.Class;
 import DND.Actors.Races.Race;
-
+import DND.Items.Item;
 import java.util.ArrayList;
 
 public class NPC extends Character {
@@ -32,5 +32,22 @@ public class NPC extends Character {
 
     public String[] getResponse(int inputPrompt){
         return respondsWith.get(inputPrompt);
+    }
+
+    public class Merchant extends NPC {
+        public Merchant(String name, Race race, Class dndclass, ArrayList<Item> inventory){
+            super(name, race, dndclass);
+            this.inventory = inventory;
+        }
+
+        public void buyItem(Character c, Item item){
+            c.addGold(item.cost/2);
+            c.inventory.remove(item);
+        }
+
+        public void sellItem(Character c, Item item){
+            c.removeGold(item.cost);
+            c.inventory.add(item);
+        }
     }
 }

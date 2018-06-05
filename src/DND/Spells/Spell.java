@@ -2,13 +2,12 @@ package DND.Spells;
 
 import DND.Actors.Actor;
 
-//spells should be function objects
+/*
+spells should be function objects (command pattern)
 
-//spells can target 1 creature (including the caster), multiple creatures, a location. they can have a range
-//they often have an area of effect
-
-//range and area of effect sound like a bitch to implement, and already part of most engines, so ill skip em
-//how to implement all those targeting methods sounds unpleasant though
+spells can target 1 creature (including the caster), multiple creatures, or a location
+I should have 3 subclasses of spell for each kind of input (Item 20: Prefer class hierarchies to tagged classes)
+*/
 
 public abstract class Spell {
     private String name;

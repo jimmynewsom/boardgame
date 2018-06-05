@@ -48,7 +48,6 @@ public class SimpleDNDFX extends Application {
 
         Scene scene = new Scene(grid, 600, 400);
         primaryStage.setScene(scene);
-
         primaryStage.show();
     }
 }

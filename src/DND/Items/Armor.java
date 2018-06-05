@@ -7,12 +7,10 @@ public class Armor extends Item {
     public boolean stealthDisadvantage;
 
     public Armor(String itemName, int cost, int AC, int strReq, boolean stealth, int weight, ArmorType type){
-        this.itemName = itemName;
-        this.cost = cost;
+        super(itemName, null, cost, weight);
         this.AC = AC;
         this.strengthRequirement = strReq;
         this.stealthDisadvantage = stealth;
-        this.weight = weight;
         this.type = type;
     }
 

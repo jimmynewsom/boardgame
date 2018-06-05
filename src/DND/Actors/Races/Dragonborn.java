@@ -2,14 +2,14 @@ package DND.Actors.Races;
 
 import DND.Actors.Actor;
 import DND.Actors.Character;
-import DND.Actors.Dragon;
+import DND.Actors.Monster;
 import DND.Game;
 
 public class Dragonborn extends Race {
-    private Dragon.DragonColor color;
+    private Monster.Dragon.DragonColor color;
     private Game.DamageType resistanceType;
 
-    public Dragonborn(Dragon.DragonColor color){
+    public Dragonborn(Monster.Dragon.DragonColor color){
         super(Actor.Size.MEDIUM, 30, Actor.Vision.REGULARSIGHT, new Actor.Language[] {Actor.Language.COMMON, Actor.Language.DRACONIC});
         this.color = color;
         switch (color){

@@ -1,15 +1,14 @@
 package DND.Actors;
 
-        import DND.Actors.Classes.Class;
-        import DND.Actors.Classes.Warlock;
-        import DND.Actors.Races.Race;
-        import DND.Items.Item;
-        import DND.Items.Weapon;
-        import DND.Items.Armor;
+import DND.Actors.Classes.Class;
+import DND.Actors.Classes.Warlock;
+import DND.Actors.Races.Race;
+import DND.Items.Item;
+import DND.Items.Weapon;
+import DND.Items.Armor;
 
-        import java.util.ArrayList;
-        import java.util.Random;
-
+import java.util.ArrayList;
+import java.util.Random;
 
 //encapsulation is a pain in the ass...
 
@@ -21,14 +20,14 @@ public class Character extends Actor {
     private String name;
     private Race race;
     private ArrayList<Class> dndclass_s;
-    private int xp, level;
+    private int xp, level, gold;
     //private Feat[] feats;
     private int[] maxSpellSlots = new int[9], currentSpellSlots = new int[9];
 
     private Armor armor;
     private Weapon weapon;
     //inventory size is unlimited, but there's a weight limit
-    private ArrayList<Item> inventory = new ArrayList<Item>();
+    protected ArrayList<Item> inventory = new ArrayList<Item>();
     private int weight = 0, weightLimit = 100;
 
     private ArrayList<Weapon.WeaponType> weaponProficiencies;
@@ -79,9 +78,8 @@ public class Character extends Actor {
     }
 
 
-    //I should roll 4 and drop the lowest die. also, people should choose which rolls go to which stats, better
+    //later I'll just set stats and put this logic in the view. the player will roll and choose values
     public void rollStats(){
-        int r1, r2, r3, r4;
         strength = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
         dexterity = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
         intelligence = 3 + r.nextInt(6) + r.nextInt(6) + r.nextInt(6);
@@ -91,6 +89,7 @@ public class Character extends Actor {
     }
 
     //this is messy.. might be cleaner with an array, but I like my explicit variable names for stats
+    //I might use an enum map for stats. kinda unneccessary, but right now I have to write 6 methods for every stat thing that can happen, fucking annoying
     private int changeStat(int stat, int change){
         if(stat + change > 20)
             return 20;
@@ -124,13 +123,31 @@ public class Character extends Actor {
         charisma = changeStat(charisma, c);
     }
 
+    public boolean hasGold(int g){
+        if(gold > g)
+            return true;
+        else
+            return false;
+    }
+
+    public int getGold(){
+        return gold;
+    }
+
+    public void addGold(int g){
+        gold =+ g;
+    }
+
+    public void removeGold(int g){
+        gold =- g;
+    }
+
     public void gainXP(int xp){
         this.xp =+ xp;
         while(this.xp > XP_PER_LEVEL[level]){
             levelUp(new Warlock());
         }
     }
-
 
     private void levelUp(Class c){
         level++;
@@ -144,13 +161,19 @@ public class Character extends Actor {
         languages.add(language);
     }
 
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
     public void pickUpItem(Item item) throws Exception {
-        if(weight < weightLimit) {
-            inventory.add(item);
-            //weight =+ item.weight;
+        if(weight + item.weight > weightLimit) {
+            throw new Exception();
         }
-        else
-            System.out.println("Weight limit reached.!");
+        else {
+            inventory.add(item);
+            weight = weight + item.weight;
+        }
+
     }
 
     private void equip(Weapon weapon) {

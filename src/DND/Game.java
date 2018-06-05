@@ -36,7 +36,7 @@ public class Game {
         //this way I dont have to build a new data structure, and since all the logic is in one place i think its ok. messy but fully contained
 
         //also, this way I can do this once and then let the returned object track turn order
-        //also, im returning a linkedlist instead of a queue, because i want flexibility, so you can skip people turns and stuff
+        //also, im returning a linkedlist instead of a queue, because i want flexibility, so you can skip people's turns and stuff
 
         Actor[] combatants = new Actor[party.length + enemies.length];
         int[] rolls = new int[combatants.length];
@@ -74,5 +74,10 @@ public class Game {
 
     public void aiTurn(){
         //make decision, do something
+    }
+
+    public static class Action {
+        String name;
+        //public enum type {ACTION, BONUS_ACTION, REACTION}
     }
 }

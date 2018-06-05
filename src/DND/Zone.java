@@ -22,9 +22,12 @@ public class Zone {
         description = desc;
     }
 
+    //this fails silently. wont be a problem until it is, maybe it should throw exceptions though
     public void connectToZone(Zone z){
-        connectingZones.add(z);
-        z.connectingZones.add(this);
+        if(!connectingZones.contains(z)) {
+            connectingZones.add(z);
+            z.connectingZones.add(this);
+        }
     }
 
     public void addNPC(NPC npc){

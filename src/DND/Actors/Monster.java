@@ -9,4 +9,8 @@ public class Monster extends Actor {
     void specialAttack(Character player){
         System.out.println("special attack");
     }
+
+    public static class Dragon extends Monster {
+        public enum DragonColor {BLACK, BLUE, BRASS, BRONZE, COPPER, GOLD, GREEN, RED, SILVER, WHITE}
+    }
 }

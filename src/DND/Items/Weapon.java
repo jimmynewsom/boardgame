@@ -13,11 +13,9 @@ public class Weapon extends Item {
     DamageType damageType;
     WeaponProperties[] properties;
     public Weapon(String itemName, int cost, int numDice, int dieValue, DamageType dtype, int weight, WeaponType wtype, WeaponProperties[] properties ){
-        this.itemName = itemName;
-        this.cost = cost;
+        super(itemName, null, cost, weight);
         this.numDice = numDice;
         this.dieValue = dieValue;
-        this.weight = weight;
         this.weaponType = wtype;
         this.damageType = dtype;
         this.properties = properties;
