@@ -10,16 +10,8 @@ package DND.Actors;
         import java.util.ArrayList;
         import java.util.Random;
 
-/*
-depending on what's public & private, I can change how ridiculous my game is.
-For example - name would normally be private, because the player chooses it and that's that.
-but you could also take it the other way, and have monsters change player's names. kinda funny
 
-same for stats. they should be private with rules for access
-but if they were public your less limited in terms of how you can throw mechanics together
-& people can have fun doing crazy builds
-*/
-
+//encapsulation is a pain in the ass...
 
 public class Character extends Actor {
     private static Random r = new Random();
@@ -47,7 +39,6 @@ public class Character extends Actor {
 
     private ArrayList<Language> languages = new ArrayList<Language>();
 
-
     public Character(String name, Race race, Class dndclass){
         this.name = name;
         level = 1; xp = 0;
@@ -57,6 +48,14 @@ public class Character extends Actor {
 
     public String getName() {
         return name;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public ArrayList<Class> getClasses() {
+        return dndclass_s;
     }
 
     //player's choice / true polymorph
@@ -70,14 +69,6 @@ public class Character extends Actor {
             this.languages.add(language);
     }
 
-    public Race getRace() {
-        return race;
-    }
-
-    public ArrayList<Class> getDNDClass_s() {
-        return dndclass_s;
-    }
-
     //polymorph
     public void changeRace(Race race) {
         //later I have this initialize and update everything for feats and items
@@ -86,6 +77,7 @@ public class Character extends Actor {
         this.speed = race.speed;
         this.vision = race.vision;
     }
+
 
     //I should roll 4 and drop the lowest die. also, people should choose which rolls go to which stats, better
     public void rollStats(){
@@ -146,16 +138,13 @@ public class Character extends Actor {
             dndclass_s.get(dndclass_s.indexOf(c)).levelUp();
         else
             dndclass_s.add(c);
-
-
     }
 
     public void learnLanguage(Language language){
         languages.add(language);
     }
 
-    //also messy
-    public void pickUpItem(Item item){
+    public void pickUpItem(Item item) throws Exception {
         if(weight < weightLimit) {
             inventory.add(item);
             //weight =+ item.weight;
@@ -164,12 +153,14 @@ public class Character extends Actor {
             System.out.println("Weight limit reached.!");
     }
 
-    private void equipWeapon(Weapon weapon) {
+    private void equip(Weapon weapon) {
+        inventory.add(this.weapon);
         this.weapon = weapon;
         inventory.remove(weapon);
     }
 
-    private void equipArmor(Armor armor) {
+    private void equip(Armor armor) {
+        inventory.add(this.armor);
         this.armor = armor;
         inventory.remove(armor);
     }

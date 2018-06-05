@@ -46,7 +46,7 @@ public class SimpleDNDFX extends Application {
         Button mapEditorBtn = new Button("Map Editor");
         grid.add(mapEditorBtn, 0, 4);
 
-        Scene scene = new Scene(grid, 300, 275);
+        Scene scene = new Scene(grid, 600, 400);
         primaryStage.setScene(scene);
 
         primaryStage.show();
