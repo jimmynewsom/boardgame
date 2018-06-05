@@ -1,25 +1,11 @@
 # boardgame
-!!!Right now this code is a mess. I know that. I'm rapidly prototyping a bunch of features, and I'll clean it up later.
+!!!Right now this code is a little messy. I know that. I'm rapidly prototyping a bunch of features, and I'll clean it up later.
 
 Implementation of a role play game using open game content as described in the included Open Gaming License.
-practicing OOD
+Practicing OOD.
 
-its an interesting project, and there's lots of ways to do it, and I haven't figured out the best one yet. Some people do this as a beginner project, but theres a lot of depth to this problem
+It's an interesting project. Some people do this as a beginner project, but theres a lot of depth to it so I'm doing it now. For example, okay, yeah the player is an object, but how do you represent races and classes? Are they instances of race and class classes or subclasses? (I was thinking subclasses, because it's an is-a relationship) And races are immutable, so I think I should use a factory for those, but classes are not, because I need to save spell lists and subclasses inside the classes. What about monsters? They could all be subclasses, but maybe I should use some kind of builder instead? So yeah, it's a pretty good practice problem for OOD.
 
-one good thing about it is I need to implement a logical system that changes and evolves over time, like adding features to an existing codebase
-I plan on gradually tweaking this over time while I work on other things.
+Also super frustrating, because there are some things I can't implement without making limiting choices, but I suppose that's what it is.
 
-one challenge is that DND with humans is infinitely extensible. Like, since people are smart, they can take the rules and add a new rule or an exception to a rule at any time.
-kind of like, if we were playing, and we decided "maybe it would be cool if it worked like this", so we change it and make that the rule
-its a cool idea for a game, but hard to implement as a program. maybe i should use a different language with first class functions? things to consider
-
-
-The first version of this will be text based, later versions might use JavaFX and a GUI or Unity.
-
-Problem #1: so, encountered an issue. more conceptual than coding. If I want to make the fighting as detailed as possible, and avoid cutting corners like using a tile system or something,
-then I need a visual representation of the game. Not impossible, I could pick an engine and let it do most of the work for me. Need to find models and stuff, but doable
-But, one of the best parts of dnd is in its storytelling potential and the way people use their imaginations. So, the more concrete I make things, the less they get to imagine / decide for themselves.
-
-I want the game to be be story driven and the visuals to play a supporting role.
-
-I think for practical purposes I should use a grid system with tiles. and maybe add spell effects later
+I'm not sure this is the best way to show recruiters I know how to code, so I think I should probably have a few other projects going too. But I'm planning on gradually adding features to this thing, probably making some sort of text-based JavaFX game.
