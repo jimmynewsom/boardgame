@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="DND.Views.Controller">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Main Menu" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button mnemonicParsing="false" text="New Character" onAction="#toNewCharacter" />
+      <Button mnemonicParsing="false" text="New Game" onAction="#toNewGame" />
+      <Button mnemonicParsing="false" text="Load Game" onAction="#toLoadGame" />
+      <Button mnemonicParsing="false" text="Map Editor" onAction="#toMapEditor" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets top="50.0" />
+   </padding>
+</VBox>

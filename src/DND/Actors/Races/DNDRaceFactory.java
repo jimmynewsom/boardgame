@@ -2,7 +2,8 @@ package DND.Actors.Races;
 
 import DND.Actors.Monster;
 
-//not sure I'm doing this right. building a factory so I can use singletons for races and only build them as necessary
+//building a factory so I can have instance control for my player/npc races
+//not sure I'm doing this right though. Maybe static factory methods would be better?
 
 public class DNDRaceFactory {
     public static Human human;

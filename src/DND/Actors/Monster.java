@@ -13,4 +13,7 @@ public class Monster extends Actor {
     public static class Dragon extends Monster {
         public enum DragonColor {BLACK, BLUE, BRASS, BRONZE, COPPER, GOLD, GREEN, RED, SILVER, WHITE}
     }
+
+    public static class MonsterBuilder {
+    }
 }

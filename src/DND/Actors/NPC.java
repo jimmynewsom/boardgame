@@ -40,14 +40,12 @@ public class NPC extends Character {
             this.inventory = inventory;
         }
 
-        public void buyItem(Character c, Item item){
-            c.addGold(item.cost/2);
-            c.inventory.remove(item);
+        public int buyItem(Item item){
+            return item.cost/2;
         }
 
-        public void sellItem(Character c, Item item){
-            c.removeGold(item.cost);
-            c.inventory.add(item);
+        public int sellItem(Item item){
+            return item.cost;
         }
     }
 }
